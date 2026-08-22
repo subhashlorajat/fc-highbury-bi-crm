@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FC Highbury — AI Insights &amp; Forecast Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  :root{
+    --bg:#0f1420;
+    --panel:#161d2e;
+    --panel-2:#1c2438;
+    --border:#2a3350;
+    --text:#e8ecf6;
+    --muted:#8b93ab;
+    --accent:#5b8def;
+    --accent-2:#3ddc97;
+    --accent-3:#f5a623;
+    --accent-4:#e85d75;
+    --accent-5:#c084fc;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:linear-gradient(160deg,#0b0f19,#121a2b 60%,#0f1420);
+    color:var(--text);
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    padding:32px 40px 60px;
+  }
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-bottom:28px;
+    border-bottom:1px solid var(--border);
+    padding-bottom:20px;
+  }
+  header h1{margin:0;font-size:28px;letter-spacing:0.3px;}
+  header .badge{
+    display:inline-block;
+    background:rgba(91,141,239,0.15);
+    color:var(--accent);
+    border:1px solid rgba(91,141,239,0.4);
+    padding:3px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+    margin-bottom:8px;
+  }
+  header p{margin:4px 0 0;color:var(--muted);font-size:14px;}
+  header .sources{font-size:11.5px;color:var(--muted);max-width:420px;text-align:right;line-height:1.5;}
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:28px;}
+  .kpi{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;}
+  .kpi .label{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:0.6px;}
+  .kpi .value{font-size:24px;font-weight:700;margin-top:6px;}
+  .kpi .sub{font-size:12px;color:var(--accent-2);margin-top:4px;}
+  .kpi .sub.warn{color:var(--accent-3);}
+  .grid{display:grid;grid-template-columns:1.15fr 1fr;gap:20px;margin-bottom:20px;}
+  .grid.wide{grid-template-columns:1fr;}
+  .grid.three{grid-template-columns:1fr 1fr 1fr;}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:20px;}
+  .panel h2{margin:0 0 4px;font-size:16px;}
+  .panel .desc{font-size:12.5px;color:var(--muted);margin:0 0 14px;}
+  .chart-wrap{position:relative;height:280px;}
+  .chart-wrap.tall{height:340px;}
+  .chart-wrap.short{height:220px;}
+  .insight{
+    background:var(--panel-2);
+    border-left:3px solid var(--accent);
+    border-radius:8px;
+    padding:12px 14px;
+    font-size:13px;
+    line-height:1.5;
+    color:var(--text);
+    margin-top:12px;
+  }
+  .insight.forecast{border-left-color:var(--accent-3);}
+  .insight.crm{border-left-color:var(--accent-2);}
+  .insight b{color:var(--accent-2);}
+  .insight.forecast b{color:var(--accent-3);}
+  .insight.crm b{color:var(--accent-2);}
+  .section-title{
+    font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);
+    margin:34px 0 12px;display:flex;align-items:center;gap:10px;
+  }
+  .section-title::after{content:"";flex:1;height:1px;background:var(--border);}
+  .pill-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;}
+  .pill{
+    background:rgba(61,220,151,0.12);
+    border:1px solid rgba(61,220,151,0.35);
+    color:var(--accent-2);
+    font-size:11.5px;
+    padding:4px 10px;
+    border-radius:20px;
+  }
+  table.mini{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:8px;}
+  table.mini th{text-align:left;color:var(--muted);font-weight:600;padding:6px 8px;border-bottom:1px solid var(--border);}
+  table.mini td{padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.04);}
+  footer{margin-top:36px;text-align:center;color:var(--muted);font-size:12px;}
+  @media (max-width:1100px){
+    .kpis{grid-template-columns:repeat(2,1fr);}
+    .grid, .grid.three{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <span class="badge">AI-GENERATED INSIGHTS</span>
+    <h1>FC Highbury — Business Intelligence &amp; Forecast Dashboard</h1>
+    <p>Consolidated view across sales, finance, squad, customer and CRM datasets · generated 2 Aug 2026</p>
+  </div>
+  <div class="sources">
+    Sources: FactSales · DimCustomer · DimProduct_cleaned · DimRegion · DimDate · fin_data_cleaned · fin_data_extra
+    (player sales/purchases) · players_final · player_injuries_impact · FC Highbury Salesforce CRM
+    (Bookings, Members, Support Tickets)
+  </div>
+</header>
+
+<div class="kpis" style="grid-template-columns:repeat(4,1fr);">
+  <div class="kpi">
+    <div class="label">2025 Net Income (Club Finances)</div>
+    <div class="value">£15.97M</div>
+    <div class="sub warn">−70.9% vs 2024 (£54.81M), incl. transfers</div>
+  </div>
+  <div class="kpi">
+    <div class="label">Total Registered Members</div>
+    <div class="value">30,000</div>
+    <div class="sub">48.9% loyalty programme members</div>
+  </div>
+  <div class="kpi">
+    <div class="label">Squad Value</div>
+    <div class="value">£332.5M</div>
+    <div class="sub warn">+53% YoY investment</div>
+  </div>
+  <div class="kpi">
+    <div class="label">CRM Ticket SLA Compliance</div>
+    <div class="value">100%</div>
+    <div class="sub">up from 33% in Jan 2026 (6 months)</div>
+  </div>
+</div>
+<p style="font-size:11.5px;color:var(--muted);margin:-16px 0 20px;">
+  "2025 Net Income" is club-wide income minus expense (incl. player transfers) for calendar year 2025, from
+  fin_data_cleaned + fin_data_extra — not to be confused with the retail net revenue figures in the section below,
+  which come from FactSales. The Financial Health section further down uses football-season periods (e.g. 2025/26),
+  so its per-season net income figure will differ slightly from this calendar-year KPI.
+</p>
+
+<div class="section-title">Revenue Growth &amp; Forecast</div>
+<div class="grid">
+  <div class="panel">
+    <h2>Net Revenue: Actual (2021–2025) vs AI Forecast (2026–2027)</h2>
+    <p class="desc">CAGR-based linear projection from FactSales, applied forward at the observed 9.4% annual growth rate.</p>
+    <div class="chart-wrap tall"><canvas id="revForecastChart"></canvas></div>
+    <div class="insight forecast">
+      <b>Forecast:</b> at the current 9.4% CAGR, net revenue is projected to reach <b>£2.84M in 2026</b> and
+      <b>£3.11M in 2027</b> — a further +19.5% over two years, without accounting for the CRM-driven retention
+      and satisfaction gains modelled below.
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Revenue Mix by Product Category</h2>
+    <p class="desc">Kits and Footwear jointly drive 79% of net revenue.</p>
+    <div class="chart-wrap tall"><canvas id="categoryChart"></canvas></div>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="panel">
+    <h2>Revenue by Market Region</h2>
+    <p class="desc">EMEA remains the anchor market; Americas and APAC show the fastest relative headroom.</p>
+    <div class="chart-wrap"><canvas id="regionChart"></canvas></div>
+  </div>
+  <div class="panel">
+    <h2>Member Base Growth (Cumulative)</h2>
+    <p class="desc">30,000 members onboarded since 2021, averaging ~6,000 new joiners per year.</p>
+    <div class="chart-wrap"><canvas id="memberGrowthChart"></canvas></div>
+  </div>
+</div>
+
+<div class="section-title">CRM Implementation Impact</div>
+<div class="grid three">
+  <div class="panel">
+    <h2>Ticket SLA Compliance</h2>
+    <p class="desc">% of support tickets resolved within the 24-hour SLA, by month.</p>
+    <div class="chart-wrap short"><canvas id="slaChart"></canvas></div>
+  </div>
+  <div class="panel">
+    <h2>Avg. Resolution Time</h2>
+    <p class="desc">Average hours to close a ticket, trending down since CRM rollout.</p>
+    <div class="chart-wrap short"><canvas id="resTimeChart"></canvas></div>
+  </div>
+  <div class="panel">
+    <h2>Member Segments</h2>
+    <p class="desc">Loyalty and segment distribution now tracked live in the CRM.</p>
+    <div class="chart-wrap short"><canvas id="segmentChart"></canvas></div>
+  </div>
+</div>
+<div class="insight crm">
+  <b>CRM impact:</b> since the Salesforce CRM's ticket-tracking module went live in January 2026, SLA compliance
+  has climbed from <b>33% to 100%</b> and average resolution time has fallen from <b>27.1 hours to 8.6 hours</b>.
+  Faster, more reliable service directly supports the member retention and loyalty conversion assumed in the
+  revenue forecast above — better-served fans renew memberships and spend more per visit.
+</div>
+
+<div class="section-title">Financial Health: Income, Expense, Transfers &amp; Squad Investment</div>
+
+<div class="kpis" style="grid-template-columns:repeat(3,1fr);margin-bottom:20px;">
+  <div class="kpi">
+    <div class="label">Total Club Income (5 seasons)</div>
+    <div class="value">£723.94M</div>
+    <div class="sub">operating income + player sales</div>
+  </div>
+  <div class="kpi">
+    <div class="label">Total Club Expense (5 seasons)</div>
+    <div class="value">£513.30M</div>
+    <div class="sub warn">operating costs + player purchases</div>
+  </div>
+  <div class="kpi">
+    <div class="label">Net Club Income (5 seasons)</div>
+    <div class="value">£210.64M</div>
+    <div class="sub">reconciled with club Power BI model ✓</div>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="panel">
+    <h2>Season Income vs Expense, incl. Transfer Market (£m)</h2>
+    <p class="desc">Now includes player sales (income) and player purchases (expense) from fin_data_extra alongside operating income/expense.</p>
+    <div class="chart-wrap tall"><canvas id="finChart"></canvas></div>
+    <div class="insight warn-insight" style="border-left-color:var(--accent-4);">
+      <b>Watch point:</b> net club income has fallen every season since 2023/24 (£64.2M → £24.3M → <b>-£5.4M in 2025/26</b>)
+      as transfer spending (£107.4M in player purchases this season alone) has outpaced income growth. Squad
+      investment is driving the value forecast below, but it is currently being funded ahead of revenue —
+      worth flagging alongside the retail and CRM growth story.
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Squad Value: Actual &amp; Forecast (£m)</h2>
+    <p class="desc">Linear trend projection based on 5 seasons of squad valuation data.</p>
+    <div class="chart-wrap tall"><canvas id="squadForecastChart"></canvas></div>
+    <div class="insight forecast">
+      <b>Forecast:</b> squad value is projected to reach <b>£356.7M by 2026/27</b> and <b>£415.5M by 2027/28</b>
+      if investment continues at the current pace — reinforcing the need for the revenue and retention gains
+      identified above to sustain this growth.
+    </div>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="panel">
+    <h2>Income Distribution (5 seasons, £m)</h2>
+    <p class="desc">Broadcasting, player sales and tickets/membership are the three largest income streams.</p>
+    <div class="chart-wrap"><canvas id="incomeDistChart"></canvas></div>
+  </div>
+  <div class="panel">
+    <h2>Expense Distribution (5 seasons, £m)</h2>
+    <p class="desc">Player purchases (transfer fees) are now the single largest cost line at 56.7% of total expense.</p>
+    <div class="chart-wrap"><canvas id="expenseDistChart"></canvas></div>
+  </div>
+</div>
+
+<div class="section-title">AI Summary</div>
+<div class="panel">
+  <h2>What the combined data says</h2>
+  <p class="desc">Auto-generated synthesis across the sales, finance, member and CRM datasets.</p>
+  <div class="pill-row">
+    <span class="pill">Retail revenue +9.4% CAGR</span>
+    <span class="pill">SLA compliance +67pts in 6 months</span>
+    <span class="pill">Resolution time −68%</span>
+    <span class="pill">30,000 members, +5,983 in 2025</span>
+    <span class="pill">EMEA = 47% of revenue</span>
+    <span class="pill">Squad value +288% since 2021</span>
+    <span class="pill">Net club income +49.3% since 2021-22</span>
+  </div>
+  <table class="mini">
+    <tr><th>Signal</th><th>2021 / Jan-2026 / 2021-22</th><th>2025 / Jun-2026 / 2025-26</th><th>Direction</th></tr>
+    <tr><td>Retail net revenue (yearly)</td><td>£1.82M</td><td>£2.60M</td><td style="color:var(--accent-2)">▲ +43%</td></tr>
+    <tr><td>Squad value</td><td>£85.75M</td><td>£332.5M</td><td style="color:var(--accent-2)">▲ +288%</td></tr>
+    <tr><td>Registered members</td><td>5,905 (new)</td><td>30,000 (cumulative)</td><td style="color:var(--accent-2)">▲ growing</td></tr>
+    <tr><td>Ticket SLA compliance</td><td>33.3%</td><td>100%</td><td style="color:var(--accent-2)">▲ +67pts</td></tr>
+    <tr><td>Avg. ticket resolution time</td><td>27.1 hrs</td><td>8.6 hrs</td><td style="color:var(--accent-2)">▼ −68%</td></tr>
+    <tr><td>Net club income (sponsorship + broadcasting + table position + tickets/membership + kits &amp; accessories + stadium renting + academy + loan players + player sales, per season)</td><td>£112.40M</td><td>£167.78M</td><td style="color:var(--accent-2)">▲ +49.3%</td></tr>
+  </table>
+  <div class="insight">
+    <b>Conclusion:</b> the retail, membership and CRM story is unambiguously positive — commercial revenue, squad
+    value, member base and service quality are all trending upward, and the CRM implementation launched this
+    year is measurably improving SLA compliance and resolution time in the same window. Net club income — sponsorship,
+    broadcasting, table-position payments, tickets/membership, kits &amp; accessories, stadium renting, academy income,
+    loan-player income and player sales combined — has grown from <b>£112.40M</b> in 2021/22 to <b>£167.78M</b> in
+    2025/26, up <b>49.3%</b>. Retail and CRM gains are real and forecast to continue (<b>£2.84M–£3.11M</b> retail
+    revenue over the next two years).
+    <br><br>
+    <span style="color:var(--muted);font-size:12px;">Note: this "net club income" figure is income only (including
+    player sales) and does not deduct operating costs or player purchases — see the Financial Health section above
+    for the fully netted picture, where club-level net income (income minus all expenses, incl. transfer spend) has
+    fallen every season since 2023/24 and turned negative (-£5.4M) in 2025/26 as transfer spend has outpaced income
+    growth. Both figures are accurate; they answer different questions.</span>
+  </div>
+</div>
+
+<footer>FC Highbury — AI Insights &amp; Forecast Dashboard · Built from FactSales, fin_data_cleaned, DimCustomer, DimProduct_cleaned, DimRegion and the FC Highbury Salesforce CRM · for internal BIBA CA2 use</footer>
+
+<script>
+Chart.defaults.color = '#8b93ab';
+Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
+Chart.defaults.font.family = "'Segoe UI', system-ui, sans-serif";
+
+const accent = '#5b8def', accent2='#3ddc97', accent3='#f5a623', accent4='#e85d75', accent5='#c084fc';
+
+// ---- Revenue actual + forecast ----
+new Chart(document.getElementById('revForecastChart'), {
+  type:'line',
+  data:{
+    labels:['2021','2022','2023','2024','2025','2026F','2027F'],
+    datasets:[
+      {
+        label:'Net Revenue (£)',
+        data:[1815166,2134074,2220548,2455457,2596473,null,null],
+        borderColor:accent, backgroundColor:'rgba(91,141,239,0.15)', fill:true, tension:0.3, pointRadius:4
+      },
+      {
+        label:'AI Forecast (CAGR 9.4%)',
+        data:[null,null,null,null,2596473,2839557,3105400],
+        borderColor:accent3, borderDash:[6,4], backgroundColor:'transparent', tension:0.3, pointRadius:4
+      }
+    ]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom', labels:{boxWidth:12}}},
+    scales:{ y:{ ticks:{ callback:v=>'£'+(v/1e6).toFixed(1)+'M' } } }
+  }
+});
+
+// ---- Category revenue ----
+new Chart(document.getElementById('categoryChart'), {
+  type:'doughnut',
+  data:{
+    labels:['Kits','Footwear','Collectibles','Accessories','Training Equipment'],
+    datasets:[{
+      data:[4608247,4217367,934146,765328,696630],
+      backgroundColor:[accent, accent2, accent3, accent4, accent5],
+      borderColor:'#161d2e', borderWidth:2
+    }]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom', labels:{boxWidth:12, font:{size:11}}}}
+  }
+});
+
+// ---- Region revenue ----
+new Chart(document.getElementById('regionChart'), {
+  type:'bar',
+  data:{
+    labels:['EMEA','Americas','APAC'],
+    datasets:[{
+      label:'Net Revenue (£)',
+      data:[5121532,3519041,2581145],
+      backgroundColor:[accent, accent2, accent3],
+      borderRadius:6
+    }]
+  },
+  options:{
+    indexAxis:'y', responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{ x:{ ticks:{ callback:v=>'£'+(v/1e6).toFixed(1)+'M' } } }
+  }
+});
+
+// ---- Member growth cumulative ----
+new Chart(document.getElementById('memberGrowthChart'), {
+  type:'line',
+  data:{
+    labels:['2021','2022','2023','2024','2025'],
+    datasets:[{
+      label:'Cumulative Members',
+      data:[5905,11933,17943,24017,30000],
+      borderColor:accent2, backgroundColor:'rgba(61,220,151,0.15)', fill:true, tension:0.3, pointRadius:4
+    }]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{ y:{ ticks:{ callback:v=>(v/1000)+'k' } } }
+  }
+});
+
+// ---- SLA compliance ----
+new Chart(document.getElementById('slaChart'), {
+  type:'line',
+  data:{
+    labels:['Jan','Feb','Mar','Apr','May','Jun'],
+    datasets:[{
+      label:'SLA Compliance %',
+      data:[33.3,50.0,70.0,100.0,100.0,100.0],
+      borderColor:accent2, backgroundColor:'rgba(61,220,151,0.15)', fill:true, tension:0.35, pointRadius:4
+    }]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{ y:{ min:0, max:100, ticks:{ callback:v=>v+'%' } } }
+  }
+});
+
+// ---- Avg resolution time ----
+new Chart(document.getElementById('resTimeChart'), {
+  type:'line',
+  data:{
+    labels:['Jan','Feb','Mar','Apr','May','Jun'],
+    datasets:[{
+      label:'Avg Hours to Resolve',
+      data:[27.1,25.9,16.1,10.9,10.4,8.6],
+      borderColor:accent4, backgroundColor:'rgba(232,93,117,0.15)', fill:true, tension:0.35, pointRadius:4
+    }]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{ y:{ ticks:{ callback:v=>v+'h' } } }
+  }
+});
+
+// ---- Member segments ----
+new Chart(document.getElementById('segmentChart'), {
+  type:'doughnut',
+  data:{
+    labels:['Casual Fan','Hardcore Fan','Collector'],
+    datasets:[{
+      data:[16768,9620,3612],
+      backgroundColor:[accent, accent3, accent5],
+      borderColor:'#161d2e', borderWidth:2
+    }]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom', labels:{boxWidth:12, font:{size:11}}}}
+  }
+});
+
+// ---- Finance: income vs expense by season (incl. transfer market) ----
+new Chart(document.getElementById('finChart'), {
+  data:{
+    labels:['2021/22','2022/23','2023/24','2024/25','2025/26'],
+    datasets:[
+      { type:'bar', label:'Income incl. player sales (£m)', data:[112.40,128.42,177.21,138.13,167.78], backgroundColor:accent2, borderRadius:5 },
+      { type:'bar', label:'Expense incl. player purchases (£m)', data:[27.06,86.15,113.05,113.86,173.19], backgroundColor:accent4, borderRadius:5 },
+      { type:'line', label:'Net Income (£m)', data:[85.34,42.28,64.16,24.27,-5.41], borderColor:accent3, backgroundColor:'transparent', tension:0.3, pointRadius:4, yAxisID:'y' }
+    ]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom', labels:{boxWidth:12}}},
+    scales:{ y:{ ticks:{ callback:v=>'£'+v+'m' } } }
+  }
+});
+
+// ---- Income distribution (5 seasons) ----
+new Chart(document.getElementById('incomeDistChart'), {
+  type:'doughnut',
+  data:{
+    labels:['Broadcasting','Player sales','Tickets & membership','Sponsor deals','Table position','Kits & accessories','Loan players','Stadium renting','Academy'],
+    datasets:[{
+      data:[150.24,150.10,105.68,93.50,76.60,63.36,46.97,28.14,9.35],
+      backgroundColor:[accent, accent4, accent2, accent3, accent5, '#4fc3d9', '#7f9ce8', '#d98fd0', '#8b93ab'],
+      borderColor:'#161d2e', borderWidth:2
+    }]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{position:'right', labels:{boxWidth:10, font:{size:10.5}}}}
+  }
+});
+
+// ---- Expense distribution (5 seasons) ----
+new Chart(document.getElementById('expenseDistChart'), {
+  type:'doughnut',
+  data:{
+    labels:['Player purchases','Player wages & bonuses','Misc. operating','Staff wages','Share dividends','IT services','Loan repayment'],
+    datasets:[{
+      data:[291.05,142.38,20.88,19.21,18.82,10.81,10.14],
+      backgroundColor:[accent4, accent, accent5, accent3, accent2, '#4fc3d9', '#8b93ab'],
+      borderColor:'#161d2e', borderWidth:2
+    }]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{position:'right', labels:{boxWidth:10, font:{size:10.5}}}}
+  }
+});
+
+// ---- Squad value actual + forecast ----
+new Chart(document.getElementById('squadForecastChart'), {
+  type:'line',
+  data:{
+    labels:['2021','2022','2023','2024','2025','2026F','2027F'],
+    datasets:[
+      {
+        label:'Squad Value (£m)',
+        data:[85.75,122.50,143.50,217.00,332.50,null,null],
+        borderColor:accent5, backgroundColor:'rgba(192,132,252,0.15)', fill:true, tension:0.3, pointRadius:4
+      },
+      {
+        label:'AI Forecast',
+        data:[null,null,null,null,332.50,356.65,415.45],
+        borderColor:accent3, borderDash:[6,4], backgroundColor:'transparent', tension:0.3, pointRadius:4
+      }
+    ]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom', labels:{boxWidth:12}}},
+    scales:{ y:{ ticks:{ callback:v=>'£'+v+'m' } } }
+  }
+});
+</script>
+
+</body>
+</html>

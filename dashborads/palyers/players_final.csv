@@ -1,0 +1,29 @@
+id,player_name,nationality,homegrown_status,primary_position,secondary_position,goals,assists,market_value,wages,bonuses,release_clause,buyback_clause,purchase_fee,injury_record,training_rating,height,weight,bmi,vo2_level,player_grade,preferred_foot,minutes_played,games_played,chances_created,blocks,saves,duel_success,clean_sheets,xg,touches,passes,tackles
+29,Jaime Sørensen,England,Yes,GK,,0,1,9368121,52671,10701,14508682,,0,Minor hamstring strain - out 2 weeks,58,185.4,85.2,24.8,50.5,C+,Right,1474,23,0,4,60,50.8,19,0,1063,1087,2
+30,Felix Soo,England,Yes,GK,,0,1,6974504,54810,7815,15130709,,28794574,No injuries this season,69,194.3,82.9,22,49.1,C+,Right,2403,36,0,4,116,72.1,3,0,840,1118,1
+31,Ryan Zakaria,Scotland,Yes,GK,,0,0,13593071,119372,14882,32537725,20056051,0,Back spasms - out 2 weeks,90,186.5,82.6,23.7,45.7,C+,Right,2907,33,0,2,82,65.2,17,0,1477,914,3
+32,Seyid Jamshidi,Ireland,Yes,RB,RW,3,3,7113402,76836,10245,17698287,,58036960,Calf tightness - out 10 days,61,193.1,89.7,24.1,61.1,C+,Left,1287,23,15,17,0,82.1,10,0.6,2353,1709,50
+33,Tebuai Sengulane,England,Yes,RB,RW,3,3,45991112,130020,17967,109760696,66700380,46420233,Groin strain - out 3 weeks,89,193,88.8,23.8,52.2,C+,Right,2725,38,20,13,0,86.2,3,0.8,1974,1448,45
+34,Arseniy Laabidi,Scotland,Yes,CB,LB,2,1,9711541,65535,12309,17568278,,0,Minor knock - out a few days,56,194.9,87.9,23.1,56.2,C+,Both,2966,35,7,38,0,71.5,15,0.3,2206,1671,24
+35,Darren Soto,Wales,Yes,CB,RB,0,1,28637429,36410,7322,70362112,,0,Back spasms - out 2 weeks,77,185.8,81.9,23.7,55,C+,Right,2177,29,2,13,0,72.6,15,2.5,1566,1556,22
+36,Kamal Pierre,Ireland,Yes,CB,,4,2,19716149,42112,4618,32859864,,0,Minor hamstring strain - out 2 weeks,69,182.6,85.2,25.6,59.6,C+,Left,963,17,4,36,0,89.5,11,1.3,2482,1363,25
+37,Víctor Mao,Ireland,Yes,CB,LB,3,2,17846993,34699,4142,41787974,,75441383,Groin strain - out 3 weeks,57,184.3,82.8,24.4,50.3,C+,Right,2278,28,6,39,0,82.7,4,0.9,1666,1831,34
+38,Shams Benjamin,Scotland,Yes,LB,CB,2,5,6247119,109281,15467,10458302,,0,Back spasms - out 2 weeks,82,184.8,77.7,22.7,54.4,C+,Left,1607,22,15,20,0,60,13,0.6,1508,1531,46
+39,Claudio Makoond,USA,No,LB,,4,4,11721922,62898,11360,,,6065270,Calf tightness - out 10 days,60,185,82.9,24.2,54.3,C+,Right,1350,20,22,24,0,82.5,10,2.6,2412,1587,35
+40,Daryl Nkrumah,Portugal,No,CDM,,5,5,34836732,99995,20477,59700780,,65020228,Minor knock - out a few days,76,188.1,86.3,24.4,50.8,C+,Right,1362,17,59,38,0,66.1,9,1,2364,1329,51
+41,Tomasz Efthymiou,Senegal,No,CDM,CM,5,7,12348123,68913,11633,,,49750922,Minor hamstring strain - out 2 weeks,58,181.6,85.3,25.9,61.7,C+,Left,2403,35,32,20,0,62.7,10,0.7,2188,1159,38
+42,Samuel Sidani,Spain,No,CM,CAM,3,10,20965417,63782,3534,36877759,,44712119,Long-term ACL recovery - out 5 months,90,175.7,82.6,26.7,60.9,B,Right,2427,35,51,5,0,56,0,5.3,2537,2056,15
+43,Dominik Castro,USA,No,CM,CAM,6,7,20896785,100791,8438,51861790,,35774440,Recurring knee issue - 2 spells out this season,71,176.9,74.4,23.8,58.6,C+,Left,1783,27,28,3,0,57,0,3,2143,1423,12
+44,Silvestre Paz,Italy,No,CM,,3,12,5295730,67824,9898,12434166,,86750606,Back spasms - out 2 weeks,82,174.6,77.3,25.3,57.2,B-,Right,2265,33,47,4,0,52,0,5.9,2611,1037,14
+45,Chol Andrew,Argentina,No,CM,,7,3,17352860,66411,7783,,,49355629,Concussion protocol - out 1 week,95,178.7,80.4,25.2,59.7,C+,Left,753,15,79,3,0,60.8,0,7.8,2466,2495,20
+46,Fifame Klein,USA,No,CAM,RW,13,13,72138969,63077,6651,165450633,,90660318,Recurring knee issue - 2 spells out this season,79,179.4,80.6,25,60.1,B+,Right,1755,29,26,4,0,51.8,0,11.3,2127,1522,7
+47,Cristiano Nyiransabimana,Norway,No,CAM,RW,8,16,22454496,154045,16511,49411116,,25625452,Concussion protocol - out 1 week,68,172.4,75.3,25.3,60.7,B,Left,2144,25,66,0,0,48.9,0,12.9,2837,1674,13
+48,Arkadiusz Umar,Nigeria,No,RW,ST,5,7,45787568,115202,27758,52539582,,85843504,Calf tightness - out 10 days,79,184.3,77.4,22.8,62.7,C+,Left,1041,19,20,5,0,59.1,0,13.4,2017,1196,6
+49,Stavros Hebala,Belgium,No,RW,CAM,7,12,43203069,110345,5658,53475858,,46322042,No injuries this season,66,188,79.1,22.4,58.8,C+,Right,1485,19,47,4,0,51.3,0,6.9,1349,1344,4
+50,Shankar Thermidor,Croatia,No,LW,,13,14,45587188,219803,37011,90250369,37033503,7604863,Back spasms - out 2 weeks,78,170.2,74.5,25.7,62.7,B+,Right,1787,22,29,3,0,56.3,0,6.6,1749,1192,13
+51,Gatis O'Donnell,Uruguay,No,LW,ST,14,19,31875760,243424,34684,,,22193097,Long-term ACL recovery - out 5 months,71,183.8,83.1,24.6,63.8,A,Right,2505,37,42,2,0,61.2,0,4.2,1234,1239,8
+52,Soběslav Tan,Ghana,No,ST,LW,24,10,11142771,132128,20782,22603094,10497480,80035684,Minor knock - out a few days,71,185.5,85.7,24.9,64.6,A-,Right,1480,21,6,3,0,65.7,0,8.3,1557,1175,6
+53,Bo Narine,Brazil,No,ST,CAM,21,6,37356939,214722,13009,74497807,45128420,96800089,Calf tightness - out 10 days,60,189.3,82.5,23,61.1,B,Right,3353,38,25,4,0,54.6,0,15.5,1010,752,0
+54,Stanko Valenzuela,Spain,No,ST,LW,6,1,37351281,44879,3533,44174532,42244193,98306611,Minor hamstring strain - out 2 weeks,77,173.5,77.2,25.6,57.2,C+,Right,2305,36,10,5,0,62.9,0,18.2,1591,908,3
+55,Heini Nijaradze,England,No,ST,RW,14,3,53706613,189612,24208,73668798,,19462849,Ankle knock - out 1 week,83,183.1,83.7,25,56.4,B-,Both,1564,23,6,3,0,54.3,0,17.8,1536,1042,1
+56,Ivan Pérez,Germany,No,ST,,12,1,21600851,173288,28949,39295080,27618500,72901520,Concussion protocol - out 1 week,80,183.8,82.9,24.5,63.2,B-,Right,2626,34,17,3,0,56.1,0,15.6,1234,1009,3

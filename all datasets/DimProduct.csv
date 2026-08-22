@@ -1,0 +1,101 @@
+﻿BrandLine,Category,Year,Quarter,Month,Day,ProductKey,ReleaseSeason,SKU
+AeroKick,Footwear,2021,Qtr 1,February,1,55,Performance Drop,BTS-0055
+AeroKick,Footwear,2021,Qtr 2,June,1,50,Performance Drop,BTS-0050
+AeroKick,Footwear,2022,Qtr 1,March,1,56,Performance Drop,BTS-0056
+AeroKick,Footwear,2022,Qtr 3,July,1,51,Performance Drop,BTS-0051
+AeroKick,Footwear,2023,Qtr 1,March,1,47,Performance Drop,BTS-0047
+AeroKick,Footwear,2023,Qtr 2,April,1,57,Performance Drop,BTS-0057
+AeroKick,Footwear,2023,Qtr 3,August,1,52,Performance Drop,BTS-0052
+AeroKick,Footwear,2024,Qtr 2,April,1,48,Performance Drop,BTS-0048
+AeroKick,Footwear,2024,Qtr 2,May,1,58,Performance Drop,BTS-0058
+AeroKick,Footwear,2024,Qtr 3,September,1,53,Performance Drop,BTS-0053
+AeroKick,Footwear,2025,Qtr 1,January,1,54,Performance Drop,BTS-0054
+AeroKick,Footwear,2025,Qtr 2,May,1,49,Performance Drop,BTS-0049
+Matchday,Accessories,2021,Qtr 2,April,1,80,Holiday and Event,ACC-0080
+Matchday,Accessories,2021,Qtr 3,September,1,85,Holiday and Event,ACC-0085
+Matchday,Accessories,2021,Qtr 4,October,1,75,Holiday and Event,ACC-0075
+Matchday,Accessories,2022,Qtr 2,May,1,81,Holiday and Event,ACC-0081
+Matchday,Accessories,2022,Qtr 2,June,1,71,Holiday and Event,ACC-0071
+Matchday,Accessories,2022,Qtr 4,October,1,86,Holiday and Event,ACC-0086
+Matchday,Accessories,2022,Qtr 4,November,1,76,Holiday and Event,ACC-0076
+Matchday,Accessories,2023,Qtr 1,January,1,77,Holiday and Event,ACC-0077
+Matchday,Accessories,2023,Qtr 2,June,1,82,Holiday and Event,ACC-0082
+Matchday,Accessories,2023,Qtr 3,July,1,72,Holiday and Event,ACC-0072
+Matchday,Accessories,2023,Qtr 4,November,1,87,Holiday and Event,ACC-0087
+Matchday,Accessories,2024,Qtr 1,January,1,88,Holiday and Event,ACC-0088
+Matchday,Accessories,2024,Qtr 1,February,1,78,Holiday and Event,ACC-0078
+Matchday,Accessories,2024,Qtr 3,July,1,83,Holiday and Event,ACC-0083
+Matchday,Accessories,2024,Qtr 3,August,1,73,Holiday and Event,ACC-0073
+Matchday,Accessories,2025,Qtr 1,March,1,79,Holiday and Event,ACC-0079
+Matchday,Accessories,2025,Qtr 3,August,1,84,Holiday and Event,ACC-0084
+Matchday,Accessories,2025,Qtr 3,September,1,74,Holiday and Event,ACC-0074
+PitchLab,Training Equipment,2021,Qtr 1,January,1,60,All Year,TRN-0060
+PitchLab,Training Equipment,2021,Qtr 1,January,1,70,All Year,TRN-0070
+PitchLab,Training Equipment,2021,Qtr 2,June,1,65,All Year,TRN-0065
+PitchLab,Training Equipment,2022,Qtr 1,February,1,61,All Year,TRN-0061
+PitchLab,Training Equipment,2022,Qtr 3,July,1,66,All Year,TRN-0066
+PitchLab,Training Equipment,2023,Qtr 1,March,1,62,All Year,TRN-0062
+PitchLab,Training Equipment,2023,Qtr 3,August,1,67,All Year,TRN-0067
+PitchLab,Training Equipment,2024,Qtr 2,April,1,63,All Year,TRN-0063
+PitchLab,Training Equipment,2024,Qtr 3,September,1,68,All Year,TRN-0068
+PitchLab,Training Equipment,2025,Qtr 2,May,1,64,All Year,TRN-0064
+PitchLab,Training Equipment,2025,Qtr 4,October,1,59,All Year,TRN-0059
+PitchLab,Training Equipment,2025,Qtr 4,October,1,69,All Year,TRN-0069
+PitchSide Elite,Kits,2021,Qtr 3,August,1,4,Annual Kit Drop,KIT-0004
+PitchSide Elite,Kits,2021,Qtr 3,August,1,9,Annual Kit Drop,KIT-0009
+PitchSide Elite,Kits,2021,Qtr 3,August,1,14,Annual Kit Drop,KIT-0014
+PitchSide Elite,Kits,2021,Qtr 3,August,1,19,Annual Kit Drop,KIT-0019
+PitchSide Elite,Kits,2021,Qtr 3,August,1,24,Annual Kit Drop,KIT-0024
+PitchSide Elite,Kits,2021,Qtr 3,August,1,29,Annual Kit Drop,KIT-0029
+PitchSide Elite,Kits,2022,Qtr 2,May,15,31,Tournament Cycle,NTK-0031
+PitchSide Elite,Kits,2022,Qtr 2,May,15,33,Tournament Cycle,NTK-0033
+PitchSide Elite,Kits,2022,Qtr 2,May,15,35,Tournament Cycle,NTK-0035
+PitchSide Elite,Kits,2022,Qtr 2,May,15,37,Tournament Cycle,NTK-0037
+PitchSide Elite,Kits,2022,Qtr 2,May,15,39,Tournament Cycle,NTK-0039
+PitchSide Elite,Kits,2022,Qtr 2,May,15,41,Tournament Cycle,NTK-0041
+PitchSide Elite,Kits,2022,Qtr 2,May,15,43,Tournament Cycle,NTK-0043
+PitchSide Elite,Kits,2022,Qtr 2,May,15,45,Tournament Cycle,NTK-0045
+PitchSide Elite,Kits,2022,Qtr 3,August,1,5,Annual Kit Drop,KIT-0005
+PitchSide Elite,Kits,2022,Qtr 3,August,1,10,Annual Kit Drop,KIT-0010
+PitchSide Elite,Kits,2022,Qtr 3,August,1,15,Annual Kit Drop,KIT-0015
+PitchSide Elite,Kits,2022,Qtr 3,August,1,20,Annual Kit Drop,KIT-0020
+PitchSide Elite,Kits,2022,Qtr 3,August,1,25,Annual Kit Drop,KIT-0025
+PitchSide Elite,Kits,2022,Qtr 3,August,1,30,Annual Kit Drop,KIT-0030
+PitchSide Elite,Kits,2023,Qtr 3,August,1,1,Annual Kit Drop,KIT-0001
+PitchSide Elite,Kits,2023,Qtr 3,August,1,6,Annual Kit Drop,KIT-0006
+PitchSide Elite,Kits,2023,Qtr 3,August,1,11,Annual Kit Drop,KIT-0011
+PitchSide Elite,Kits,2023,Qtr 3,August,1,16,Annual Kit Drop,KIT-0016
+PitchSide Elite,Kits,2023,Qtr 3,August,1,21,Annual Kit Drop,KIT-0021
+PitchSide Elite,Kits,2023,Qtr 3,August,1,26,Annual Kit Drop,KIT-0026
+PitchSide Elite,Kits,2024,Qtr 2,May,15,32,Tournament Cycle,NTK-0032
+PitchSide Elite,Kits,2024,Qtr 2,May,15,34,Tournament Cycle,NTK-0034
+PitchSide Elite,Kits,2024,Qtr 2,May,15,36,Tournament Cycle,NTK-0036
+PitchSide Elite,Kits,2024,Qtr 2,May,15,38,Tournament Cycle,NTK-0038
+PitchSide Elite,Kits,2024,Qtr 2,May,15,40,Tournament Cycle,NTK-0040
+PitchSide Elite,Kits,2024,Qtr 2,May,15,42,Tournament Cycle,NTK-0042
+PitchSide Elite,Kits,2024,Qtr 2,May,15,44,Tournament Cycle,NTK-0044
+PitchSide Elite,Kits,2024,Qtr 2,May,15,46,Tournament Cycle,NTK-0046
+PitchSide Elite,Kits,2024,Qtr 3,August,1,2,Annual Kit Drop,KIT-0002
+PitchSide Elite,Kits,2024,Qtr 3,August,1,7,Annual Kit Drop,KIT-0007
+PitchSide Elite,Kits,2024,Qtr 3,August,1,12,Annual Kit Drop,KIT-0012
+PitchSide Elite,Kits,2024,Qtr 3,August,1,17,Annual Kit Drop,KIT-0017
+PitchSide Elite,Kits,2024,Qtr 3,August,1,22,Annual Kit Drop,KIT-0022
+PitchSide Elite,Kits,2024,Qtr 3,August,1,27,Annual Kit Drop,KIT-0027
+PitchSide Elite,Kits,2025,Qtr 3,August,1,3,Annual Kit Drop,KIT-0003
+PitchSide Elite,Kits,2025,Qtr 3,August,1,8,Annual Kit Drop,KIT-0008
+PitchSide Elite,Kits,2025,Qtr 3,August,1,13,Annual Kit Drop,KIT-0013
+PitchSide Elite,Kits,2025,Qtr 3,August,1,18,Annual Kit Drop,KIT-0018
+PitchSide Elite,Kits,2025,Qtr 3,August,1,23,Annual Kit Drop,KIT-0023
+PitchSide Elite,Kits,2025,Qtr 3,August,1,28,Annual Kit Drop,KIT-0028
+Vault Series,Collectibles,2021,Qtr 2,May,1,100,Collector Drops,COL-0100
+Vault Series,Collectibles,2021,Qtr 3,July,1,90,Collector Drops,COL-0090
+Vault Series,Collectibles,2021,Qtr 4,December,1,95,Collector Drops,COL-0095
+Vault Series,Collectibles,2022,Qtr 1,January,1,96,Collector Drops,COL-0096
+Vault Series,Collectibles,2022,Qtr 3,August,1,91,Collector Drops,COL-0091
+Vault Series,Collectibles,2023,Qtr 1,February,1,97,Collector Drops,COL-0097
+Vault Series,Collectibles,2023,Qtr 3,September,1,92,Collector Drops,COL-0092
+Vault Series,Collectibles,2024,Qtr 1,March,1,98,Collector Drops,COL-0098
+Vault Series,Collectibles,2024,Qtr 4,October,1,93,Collector Drops,COL-0093
+Vault Series,Collectibles,2025,Qtr 2,April,1,99,Collector Drops,COL-0099
+Vault Series,Collectibles,2025,Qtr 2,June,1,89,Collector Drops,COL-0089
+Vault Series,Collectibles,2025,Qtr 4,November,1,94,Collector Drops,COL-0094
