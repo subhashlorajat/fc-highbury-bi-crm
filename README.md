@@ -28,7 +28,7 @@ time fell from 27.1 to 8.6 hours. Build documented in `CRM/` (24 screenshots).
 **Fans and Operations Power BI dashboard.** Operating spend by category, and merchandise profit by
 channel, country, and customer tier. Kits and footwear drive ~78% of merchandise profit; organic
 search outperforms influencer channels; Asia-Pacific and the Americas are flagged as underexploited
-markets. File: `dashborads/operations/operational_expenses(subhash).pbix`.
+markets. File: `dashboards/operations/operational_expenses(subhash).pbix`.
 
 **AI-generated dashboard comparison.** Built a fourth dashboard with an AI tool over the same
 combined dataset and compared it against the three manual ones. It independently reproduced the
@@ -62,10 +62,10 @@ Fotb Club BIBA/
 ├── presentation video.url    # recorded walkthrough
 ├── CRM/                      # Salesforce build screenshots (my work)
 ├── all datasets/             # raw CSV/XLSX source files
-└── dashborads/
+└── dashboards/
     ├── finances/              # Cariappa's dashboard
     ├── operations/            # my dashboard
-    └── palyers/               # Arun's dashboard
+    └── players/               # Arun's dashboard
 ```
 
 ## How to view
