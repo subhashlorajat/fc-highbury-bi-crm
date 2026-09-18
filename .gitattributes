@@ -1,0 +1,5 @@
+# The only HTML in this repo is one exported AI-dashboard artefact.
+# Without this, GitHub reports the project as 100% HTML, which misrepresents
+# a Salesforce CRM + Power BI piece of work.
+dashborads/** linguist-documentation
+*.html linguist-detectable=false
